@@ -35,11 +35,9 @@ func NewKeyPair() (ecdsa.PrivateKey, []byte) {
         log.Panic(err)
     }
 
-    // fmt.Println(private.Public())
+    fmt.Println(private.Public())
 
     // fmt.Println(private)
-    fmt.Printf("Private_Struct : %x \n", private)
-    fmt.Printf("Public_Struct : %x \n", private.PublicKey)
 
     curveParams := curve.Params()
 
@@ -96,7 +94,7 @@ func main() {
     
 
     encopub := fmt.Sprintf("%x",wallet.PublicKey)
-    fmt.Println(fmt.Sprintf("\nHexpub : %v  \nBytepub : %v \n", encopub , HexDecode(encopub)) )
+    fmt.Println(fmt.Sprintf("\nbytepub : %v  \nhexpub : %v \n", encopub , HexDecode(encopub)) )
 
     inttohex := fmt.Sprintf("%x",wallet.PrivateKey.D)
     hextoint,_ := new(big.Int).SetString(inttohex,16)
